@@ -147,7 +147,7 @@ function setup() {
     
   sprite_12 = createSprite(level2_x+180, level2_y);
   sprite_12.addAnimation("default", object_alch);
-  sprite_12.setSpeed(random(-level2_speed, level2_speed), 0);
+  sprite_12.setSpeed(-level2_speed, 0);
   sprite_12.setCollider("rectangle", 0, 0, 23, 47);
     
   //sprite_13 = createSprite(level2_x+240, level2_y);
