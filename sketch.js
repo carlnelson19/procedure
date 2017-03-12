@@ -331,13 +331,13 @@ for(var i = 0; i < level3.length; i=i+1){
   drawSprites();
     
   if(lives == 3){
-      hearts = "♥ ♥ ♥";
+      hearts = "✞ ✞ ✞";
   }
     else if(lives == 2){
-      hearts = "♥ ♥";
+      hearts = "✞ ✞";
     }
     else if(lives == 1){
-      hearts = "♥";
+      hearts = "✞";
     }
     else if(lives == 0){
         hearts = " ";
