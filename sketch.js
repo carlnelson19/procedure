@@ -47,8 +47,8 @@ var level3;
 var lives;
 var hearts;
 
-
-
+var hideBoxX;
+var hideTextX;
 
 function preload(){
     
@@ -64,7 +64,8 @@ function preload(){
 
 function setup() {
 
-      
+  hideBoxX = 128;  
+  hideTextX = 145;
   player_x = 30;
   player_y = 730;
     
@@ -245,8 +246,8 @@ function draw() {
   scale(.85);
     
   background(49, 89, 150);
-  imageMode(CENTER);   
-  
+  imageMode(CENTER);      
+      
   //moves level 1 items back and forth  
   for(var i = 0; i < level1.length; i=i+1){
       if(level1[i].position.x >= 580){
@@ -329,7 +330,17 @@ for(var i = 0; i < level3.length; i=i+1){
   text("lives: " + hearts, 10, 25);
   frameRate(45);
   drawSprites();
-    
+  
+  fill(255);
+  stroke(0);
+  strokeWeight(3);
+  rect(-305, 0, 300, 200);
+ 
+  fill(255);
+  stroke(0);
+  strokeWeight(3);
+  rect(590, 0, 300, 200);
+      
   if(lives == 3){
       hearts = "✞ ✞ ✞";
   }
@@ -349,7 +360,9 @@ for(var i = 0; i < level3.length; i=i+1){
         rect(120, 350, 300, 100);
         strokeWeight(.5);
         fill(0);
-        text("you succumbed to sinful vices", 138, 405);
+        textSize(19);
+        text("You succumbed to sinful vices.", 140, 390);
+        text("Click anywhere to try again.", 140, 420);
         if (mouseIsPressed) {
         reset();
   }
@@ -362,11 +375,26 @@ for(var i = 0; i < level3.length; i=i+1){
         rect(120, 350, 300, 100);
         strokeWeight(.5);
         fill(0);
-        text("✞ u fuckin won that shit ✞", 158, 405);
+        textSize(18);
+        text("✞ The Creator appreciates you ✞", 141, 405);
         if (mouseIsPressed) {
         reset();
   }
-  }     
+  } 
+    
+     fill(255);
+        stroke(0);
+        strokeWeight(3);
+        rect(hideBoxX, 345, 310, 120);
+        strokeWeight(.5);
+        fill(0);
+        textSize(16);
+        text("Arrow keys to move, spacebar to", hideTextX, 380);
+        text("stop. Avoid all sin as you travel towards", hideTextX, 410);
+        text("the Creator. Click anywhere to start.", hideTextX, 440);
+    if (mouseIsPressed) {
+        reset();
+  }
 }
 
 
@@ -398,4 +426,6 @@ function reset (){
         sprite_player.position.x = player_x;
         sprite_player.position.y = player_y;
         sprite_player.setSpeed(0, 0);
+        hideBoxX = 600;
+        hideTextX = 600;
 }
