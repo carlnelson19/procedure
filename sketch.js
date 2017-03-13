@@ -350,6 +350,8 @@ for(var i = 0; i < level3.length; i=i+1){
         strokeWeight(.5);
         fill(0);
         text("you succumbed to sinful vices", 138, 405);
+        if (mouseIsPressed) {
+        reset();
     }
   
     if (sprite_player.collide(sprite_boss)) {
@@ -360,6 +362,8 @@ for(var i = 0; i < level3.length; i=i+1){
         strokeWeight(.5);
         fill(0);
         text("✞ u fuckin won that shit ✞", 158, 405);
+        if (mouseIsPressed) {
+        reset();
   }     
 }
 
@@ -385,4 +389,11 @@ function keyPressed (){
     
   }
   return false;
+}
+
+function reset (){
+        lives = 3;
+        sprite_player.position.x = player_x;
+        sprite_player.position.y = player_y;
+        sprite_player.setSpeed(0, 0);
 }
